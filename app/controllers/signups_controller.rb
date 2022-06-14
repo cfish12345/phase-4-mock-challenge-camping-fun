@@ -17,7 +17,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid
 
     def create
         signup = Signup.create(signup_params)
-        render json: signup, includes: :activities, status: 201
+        render json: signup, include: :activity, status: 201
     end
 
     private

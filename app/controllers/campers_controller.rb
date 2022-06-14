@@ -9,7 +9,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :unprocessable_entity
     def show
         camper = Camper.find_by(id: params[:id])
         if camper
-            render json: camper, includes: :activities, status: :ok
+            render json: camper, include: :activity, status: :ok
         else
             render json: { error: "Camper not found" }, status: 404
         end
